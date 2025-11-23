@@ -1,0 +1,119 @@
+# Machine Learning Zoomcamp
+
+
+## 1.7 Introduction to NumPy
+
+
+Plan:
+
+* Creating arrays
+* Multi-dimensional arrays
+* Randomly generated arrays
+* Element-wise operations
+    * Comparison operations
+    * Logical operations
+* Summarizing operations
+import numpy as np
+np
+## Creating arrays
+
+np.zeros(10)
+np.ones(10)
+np.full(10, 2.5)
+a = np.array([1, 2, 3, 4 , 5])
+a
+a[2] = 10
+a
+np.arange(0, 10, 2)
+np.linspace(0, 1 , 5)
+## Multi-dimensional arrays
+
+np.zeros((5, 2))
+n = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+    ])
+n
+n[0, 1] = 20
+n
+n[2] = [1, 1, 1]
+n
+n[:, 2] = [0, 1, 2]
+n
+n[:, 1] #whole (rows), column "1" - as in 0, "1", 2
+n[1:, :2] # from row 1 to the end, columns up to (not including) 2
+## Reshaping Arrays
+x = np.arange(12)
+x
+x.reshape(3, 4) # 3 rows, 4 columns - turn 1D -> 2D array
+x.reshape (2, -1) # 2 rows, as many columns as needed (-1 means figure it out)
+grid = np.arange(16).reshape((4, 4))
+grid
+## Concatenation & Splitting
+r = np.array([1, 2, 3])
+s = np.array([3, 2 ,1 ])
+r
+s
+np.concatenate([r, s]) #[ 1 2 3 3 2 1]
+np.vstack([r, s]) #vertical stack
+np.hstack([r.reshape(-1,1), s.reshape(-1,1)]) #horizontal stack
+#splitting 
+t = np.arange(10)
+t
+np.split(t, [3, 6]) #split at indices 3 and 6 -> [0:3], [3:6], [6:]
+
+## Broadcasting
+d = np.arange(12).reshape(3, 4)
+
+d
+
+
+
+
+
+
+## Randomly generated arrays
+
+np.random.seed(2)
+np.random.rand(5 , 2)
+np.random.seed(2)
+100 * np.random.rand(5, 2)
+np.random.seed(2)
+np.random.randn(5, 2)
+np.random.seed(2)
+np.random.randint(low=0, high=100, size=(5, 2))
+## Array Attributes (check shape/dtype)
+
+att = np.random.randint(0, 10, (4, 5))
+att
+att.shape
+att.ndim
+att.size
+att.dtype
+## Element-wise operations
+
+a = np.arange(5) 
+a
+a / 2
+b = (10 + (a * 2)) ** 3 / 100
+b
+a
+a + b + 10
+## Comparison operations
+a
+a >= 2
+b
+a > b
+a[a < b] #which element of a are smaller than b
+## Summarizing operations
+a
+a.min()
+a.max()
+a.sum()
+a.std()
+n
+n.min()
+### Next
+
+Linear algebra refresher
